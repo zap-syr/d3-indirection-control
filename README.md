@@ -50,7 +50,7 @@ Set indirection osc path for commands which you made in d3 indirection layer
 
 #### Buttons
 
-Either set width and height of your buttons or just press auto fit width and auto fit height to automatically adjust buttons size to the window.
+Either set width and height of your buttons manually or just press auto fit width and auto fit height to automatically adjust buttons size to the window.
 
 Also, you can easily unpin window with buttons either on the same monitor or an external monitor just press button open as separate window.
 
