@@ -64,11 +64,11 @@ Before exporting config file set text color and background color and adjust text
 
 Go to Companion and launch UI, go to import/export tab and import your saved config.
 
-It'll add new OSC Generic connection in Companion and will create buttons with names of your files 
+It'll add new OSC Generic connection in Companion and will create buttons with names of your files.
 
 ![companion-view](assets/companion-view.png)
 
-NOTE: If osc connection doesn't work just simply disable and enable it again
+NOTE: If osc connection doesn't work go to connection tab and just disable and enable it again.
 
 
 
