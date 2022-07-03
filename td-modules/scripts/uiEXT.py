@@ -112,7 +112,7 @@ class uiEXT:
 		if ((self.opFiles.numRows - 1) > self.ownerComp.par.Buttonsperrow):
 			self.opSize.par.value0 = self.opButtons.par.w / self.ownerComp.par.Buttonsperrow - self.opButtons.par.spacing
 		else:
-			self.opSize.par.value0 = self.opButtons.par.w / (self.opFiles.numRows - 1)- self.opButtons.par.spacing
+			self.opSize.par.value0 = self.opButtons.par.w / (self.opFiles.numRows - 1) - self.opButtons.par.spacing
 
 
 	# disconnect connection from op
