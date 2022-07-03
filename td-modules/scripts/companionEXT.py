@@ -4,7 +4,7 @@ class companionEXT:
 	def __init__(self, ownerComp):
 		# The component to which this extension is attached
 		self.ownerComp = ownerComp
-		self.button_style = {'"style"' : '"png"',
+		self.buttonStyle = {'"style"' : '"png"',
 							 '"text"' : '',
 							 '"size"' : '',
 							 '"alignment"' : '',
@@ -15,7 +15,7 @@ class companionEXT:
 							 '"relative_delay"' : 'false'
 		}
 
-		self.button_action = {'"id"' : '',
+		self.buttonAction = {'"id"' : '',
 							  '"label"' : '"X3NQabG0z:send_string"',
 							  '"instance"' : '"X3NQabG0z"',
 							  '"action"' : '"send_string"',
@@ -48,12 +48,12 @@ class companionEXT:
 
 	# get buttons style dictionary
 	def Get_button_style(self):
-		return self.button_style
+		return self.buttonStyle
 
 	
 	# get buttons action dictionary
 	def Get_buttons_action(self):
-		return self.button_action
+		return self.buttonAction
 
 
 	# save config to file

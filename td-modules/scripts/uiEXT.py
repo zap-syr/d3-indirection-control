@@ -3,14 +3,14 @@ class uiEXT:
 		# The component to which this extension is attached
 		self.ownerComp = ownerComp
 
-		self.op_ui = op('ui')
-		self.op_size = op('buttons/size')
-		self.op_buttons = op('buttons')
-		self.op_parameters = op('parameters')
-		self.op_files = op('buttons/template')
-		self.op_update = op('buttons/count1')
-		self.op_folder = op('buttons/folder/folder_dat')
-		self.op_drop = op('buttons/drop_text')
+		self.opUi = op('ui')
+		self.opSize = op('buttons/size')
+		self.opButtons = op('buttons')
+		self.opParameters = op('parameters')
+		self.opFiles = op('buttons/template')
+		self.opUpdate = op('buttons/count1')
+		self.opFolder = op('buttons/folder/folder_dat')
+		self.opDrop = op('buttons/drop_text')
 		return
 
 
@@ -42,29 +42,6 @@ class uiEXT:
 	# get folder path
 	def Get_folder_path(self):
 		return self.ownerComp.par.Folder
-
-
-	# auto fit size buttons height
-	def Auto_fit_height(self):
-		self.op_size.par.value1 = self.op_buttons.par.h / (math.ceil((self.op_files.numRows - 1) / self.op_buttons.par.alignmax)) - self.op_buttons.par.spacing
-
-
-	# auto fit size buttons width
-	def Auto_fit_width(self):
-		if ((self.op_files.numRows - 1) > self.ownerComp.par.Buttonsperrow):
-			self.op_size.par.value0 = self.op_buttons.par.w / self.ownerComp.par.Buttonsperrow - self.op_buttons.par.spacing
-		else:
-			self.op_size.par.value0 = self.op_buttons.par.w / (self.op_files.numRows - 1)- self.op_buttons.par.spacing
-
-
-	# disconnect connection from op
-	def Comp_disconnect_connectors(self, op):
-		op.inputCOMPConnectors[0].disconnect()
-
-
-	# connect op to target
-	def Comp_connect_connector(self, op, target):
-		op.inputCOMPConnectors[0].connect(target)
 
 
 	# get width of op
@@ -118,24 +95,48 @@ class uiEXT:
 
 
 	def Update_folder(self):
-		self.op_folder.par.refreshpulse.pulse()
+		self.opFolder.par.refreshpulse.pulse()
 		if not self.Get_folder_path():
-			self.op_drop.par.fontalpha = 1
+			self.opDrop.par.fontalpha = 1
 		else:
-			self.op_drop.par.fontalpha = 0
+			self.opDrop.par.fontalpha = 0
 
 
+	# auto fit size buttons height
+	def Auto_fit_height(self):
+		self.opSize.par.value1 = self.opButtons.par.h / (math.ceil((self.opFiles.numRows - 1) / self.opButtons.par.alignmax)) - self.opButtons.par.spacing
+
+
+	# auto fit size buttons width
+	def Auto_fit_width(self):
+		if ((self.opFiles.numRows - 1) > self.ownerComp.par.Buttonsperrow):
+			self.opSize.par.value0 = self.opButtons.par.w / self.ownerComp.par.Buttonsperrow - self.opButtons.par.spacing
+		else:
+			self.opSize.par.value0 = self.opButtons.par.w / (self.opFiles.numRows - 1)- self.opButtons.par.spacing
+
+
+	# disconnect connection from op
+	def Comp_disconnect_connectors(self, op):
+		op.inputCOMPConnectors[0].disconnect()
+
+
+	# connect op to target
+	def Comp_connect_connector(self, op, target):
+		op.inputCOMPConnectors[0].connect(target)
+
+
+	# update buttons thnumbnails
 	def Update_thumbnails(self):
-		self.op_update.par.reset.pulse()
+		self.opUpdate.par.reset.pulse()
 
 
 	# unpin buttons window
 	def Open_window(self):
-		op_window = op('buttons/buttons_window')
-		self.Comp_disconnect_connectors(self.op_buttons)
-		self.Set_width_comp(self.op_ui, self.op_parameters.par.w)
-		self.Set_width_comp(self.op_buttons, 1920)
-		self.Set_heigth_comp(self.op_buttons, 1080)
-		op_window.par.winopen.pulse()
+		opWindow = op('buttons/buttons_window')
+		self.Comp_disconnect_connectors(self.opButtons)
+		self.Set_width_comp(self.opUi, self.opParameters.par.w)
+		self.Set_width_comp(self.opButtons, 1920)
+		self.Set_heigth_comp(self.opButtons, 1080)
+		opWindow.par.winopen.pulse()
 
 	
